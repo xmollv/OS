@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  TweetsViewController.swift
 //  OS
 //
 //  Created by Xavi Moll on 25/12/2016.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TweetsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,4 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
