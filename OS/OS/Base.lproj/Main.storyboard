@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meat-->
+        <!--ACME-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="MeatDescriptionViewController" customModule="OS" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,10 +26,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="2431"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCY-zh-oC0" userLabel="Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2405"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2405.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-7b-yWe">
-                                                <rect key="frame" x="20" y="10" width="335" height="2385"/>
+                                                <rect key="frame" x="20" y="10" width="335" height="2385.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentación" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3Q-0Y-g5P">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="25.5"/>
@@ -204,16 +204,16 @@
                                                         <variation key="heightClass=regular-widthClass=regular" axis="horizontal"/>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NND-Jj-n7T" userLabel="Footer">
-                                                        <rect key="frame" x="0.0" y="2029.5" width="335" height="355.5"/>
+                                                        <rect key="frame" x="0.0" y="2029.5" width="335" height="356"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wKd-Ge-LUZ">
-                                                                <rect key="frame" x="20" y="20" width="295" height="281.5"/>
+                                                                <rect key="frame" x="20" y="20" width="295" height="282"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-PQ-ltF">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="123"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="123.5"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="57b-dh-vHl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="295" height="57.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="295" height="58"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdY-wC-UwX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
@@ -222,7 +222,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Introduzca su email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbF-nk-FN9">
-                                                                                        <rect key="frame" x="0.0" y="25.5" width="295" height="32"/>
+                                                                                        <rect key="frame" x="0.0" y="25.5" width="295" height="32.5"/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -230,7 +230,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="655-ps-C08">
-                                                                                <rect key="frame" x="0.0" y="67.5" width="295" height="55.5"/>
+                                                                                <rect key="frame" x="0.0" y="68" width="295" height="55.5"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFc-8D-C6I">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
@@ -250,7 +250,7 @@
                                                                         <variation key="heightClass=regular-widthClass=regular" axis="horizontal"/>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fA4-Cr-JHF">
-                                                                        <rect key="frame" x="0.0" y="133" width="295" height="148.5"/>
+                                                                        <rect key="frame" x="0.0" y="133.5" width="295" height="148.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-yh-Egw">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="20.5"/>
@@ -275,7 +275,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HY-eB-c5Y">
-                                                                <rect key="frame" x="249" y="303.5" width="66" height="32"/>
+                                                                <rect key="frame" x="249" y="304" width="66" height="32"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDT-Cw-rdO">
                                                                         <rect key="frame" x="2" y="2" width="62" height="28"/>
@@ -338,7 +338,7 @@
                             <constraint firstItem="Ivz-7j-GH2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="z7Z-yh-eIF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Meat" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="ACME" image="steak" id="acW-dT-cKf"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="2500"/>
                 </viewController>
@@ -346,7 +346,7 @@
             </objects>
             <point key="canvasLocation" x="788" y="-1252"/>
         </scene>
-        <!--Map-->
+        <!--Mapa-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="OS" customModuleProvider="target" sceneMemberID="viewController">
@@ -359,14 +359,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="83" y="313" width="209.5" height="41.5"/>
+                                <rect key="frame" x="83" y="313" width="210" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="362.5" width="215" height="17"/>
+                                <rect key="frame" x="80" y="363" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -380,7 +380,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Mapa" image="map" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,7 +399,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tweets" id="m0r-mc-DBh"/>
+                    <tabBarItem key="tabBarItem" title="Tweets" image="twitter" id="m0r-mc-DBh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLu-qa-cBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,9 +427,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook" width="64" height="64"/>
-        <image name="google-plus" width="64" height="64"/>
-        <image name="location" width="64" height="64"/>
-        <image name="meat" width="500" height="334"/>
+        <image name="facebook" width="32" height="32"/>
+        <image name="google-plus" width="32" height="32"/>
+        <image name="location" width="32" height="32"/>
+        <image name="map" width="16" height="16"/>
+        <image name="meat" width="250" height="167"/>
+        <image name="steak" width="16" height="16"/>
+        <image name="twitter" width="16" height="16"/>
     </resources>
 </document>
