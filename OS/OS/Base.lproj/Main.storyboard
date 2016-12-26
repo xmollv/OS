@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -363,9 +364,24 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDw-PY-RA6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WDw-PY-RA6" secondAttribute="trailing" id="14a-4Z-1MZ"/>
+                            <constraint firstItem="WDw-PY-RA6" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="Ete-BM-QKM"/>
+                            <constraint firstItem="WDw-PY-RA6" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ZfQ-N0-VaW"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="WDw-PY-RA6" secondAttribute="bottom" id="uyt-FC-bub"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mapa" image="map" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="mapContainer" destination="WDw-PY-RA6" id="zpG-Xz-t4K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
