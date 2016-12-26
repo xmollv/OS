@@ -80,7 +80,7 @@
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meat" translatesAutoresizingMaskIntoConstraints="NO" id="Jtp-bR-EyM">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jtp-bR-EyM">
                                                                         <rect key="frame" x="0.0" y="30.5" width="335" height="251.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Jtp-bR-EyM" secondAttribute="height" multiplier="4:3" id="H6G-A4-Tfe"/>
@@ -104,7 +104,7 @@
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meat" translatesAutoresizingMaskIntoConstraints="NO" id="ZbU-tb-ro4">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbU-tb-ro4">
                                                                         <rect key="frame" x="0.0" y="30.5" width="335" height="251"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="ZbU-tb-ro4" secondAttribute="height" multiplier="4:3" id="sGY-KH-nNR"/>
@@ -134,7 +134,7 @@
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meat" translatesAutoresizingMaskIntoConstraints="NO" id="OJz-l7-Zqm">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJz-l7-Zqm">
                                                                         <rect key="frame" x="0.0" y="30.5" width="335" height="251"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="OJz-l7-Zqm" secondAttribute="height" multiplier="4:3" id="u2j-Ol-eNW"/>
@@ -158,7 +158,7 @@
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meat" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-zV-0XE">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-zV-0XE">
                                                                         <rect key="frame" x="0.0" y="30.5" width="335" height="251"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="RFg-zV-0XE" secondAttribute="height" multiplier="4:3" id="H2b-oH-OZR"/>
@@ -341,6 +341,12 @@
                     <tabBarItem key="tabBarItem" title="ACME" image="steak" id="acW-dT-cKf"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="2500"/>
+                    <connections>
+                        <outlet property="firstImage" destination="Jtp-bR-EyM" id="tAe-x0-KBv"/>
+                        <outlet property="fourthImage" destination="RFg-zV-0XE" id="GlX-2i-rXu"/>
+                        <outlet property="secondImage" destination="ZbU-tb-ro4" id="iho-Nl-6uZ"/>
+                        <outlet property="thirdImage" destination="OJz-l7-Zqm" id="0yR-4d-4VW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,7 +437,6 @@
         <image name="google-plus" width="32" height="32"/>
         <image name="location" width="32" height="32"/>
         <image name="map" width="16" height="16"/>
-        <image name="meat" width="250" height="167"/>
         <image name="steak" width="16" height="16"/>
         <image name="twitter" width="16" height="16"/>
     </resources>
