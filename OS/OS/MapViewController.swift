@@ -53,34 +53,27 @@ class MapViewController: UIViewController {
         mapView.isHidden = true
     }
     
-    // Add markers for the places nearby the device.
-    func updateMarkers() {
-        mapView.clear()
-        
-        // Get nearby places and add markers to the map.
-        /*placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
-            if let error = error {
-                print("Current Place error: \(error.localizedDescription)")
-                return
+    func placeAutocomplete(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let query = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=meat&location=\(latitude),\(longitude)&radius=50000&key=AIzaSyCuxczot7HjTyWbWpym9NRmcAOHxxzpSGg"
+        networkManager.fetchDataFrom(serverUrl: query) { result in
+            switch result {
+            case .success(let JSON):
+                if let jsonParsed = JSON as? [String:Any] {
+                    if let results = jsonParsed["results"] as? [[String:Any]] {
+                        print("Number of results: \(results.count)")
+                        for result in results {
+                            if let place = Location(dict: result) {
+                                let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: place.lat, longitude: place.lon))
+                                marker.title = place.name
+                                marker.map = self.mapView
+                            }
+                        }
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
             
-            if let likelihoodList = placeLikelihoods {
-                for likelihood in likelihoodList.likelihoods {
-                    let place = likelihood.place
-                    
-                    let marker = GMSMarker(position: place.coordinate)
-                    marker.title = place.name
-                    marker.snippet = place.formattedAddress
-                    marker.map = self.mapView
-                }
-            }
-        })*/
-    }
-    
-    func placeAutocomplete(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        let query = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=meat&location=\(latitude),\(longitude)&radius=10000&key=AIzaSyCuxczot7HjTyWbWpym9NRmcAOHxxzpSGg"
-        networkManager.fetchDataFrom(serverUrl: query) { result in
-            dump(result)
         }
     }
     
@@ -106,11 +99,7 @@ extension MapViewController: CLLocationManagerDelegate {
         } else {
             mapView.animate(to: camera)
         }
-        
-        //This prevents the location to be updated all the time. We just want what we have around
-        locationManager.stopUpdatingLocation()
-        
-        updateMarkers()
+
     }
     
     // Handle authorization for the location manager.
