@@ -20,7 +20,7 @@ class MeatDescriptionViewController: UIViewController {
     @IBOutlet var fourthImage: UIImageView!
     
     var networkManager: NetworkManager!
-    private let flickrQuery = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a2846448fcd4963259bd4e2f4613f5b2&text=meat&safe_search=1&content_type=1&media=photos&per_page=4&format=json&nojsoncallback=1"
+    private let flickrQuery = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=13f0e8a7074cc68196840bef96520318&text=meat&safe_search=1&content_type=1&media=photos&per_page=4&format=json&nojsoncallback=1"
     private var photos = [Photo]()
     
     override func viewDidLoad() {
