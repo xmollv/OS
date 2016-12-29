@@ -9,10 +9,13 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import CoreLocation
 
 class MapViewController: UIViewController {
     
     @IBOutlet var mapContainer: UIView!
+    
+    var networkManager: NetworkManager!
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -55,7 +58,7 @@ class MapViewController: UIViewController {
         mapView.clear()
         
         // Get nearby places and add markers to the map.
-        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
+        /*placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
             if let error = error {
                 print("Current Place error: \(error.localizedDescription)")
                 return
@@ -71,7 +74,14 @@ class MapViewController: UIViewController {
                     marker.map = self.mapView
                 }
             }
-        })
+        })*/
+    }
+    
+    func placeAutocomplete(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let query = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=meat&location=\(latitude),\(longitude)&radius=10000&key=AIzaSyCuxczot7HjTyWbWpym9NRmcAOHxxzpSGg"
+        networkManager.fetchDataFrom(serverUrl: query) { result in
+            dump(result)
+        }
     }
     
 }
@@ -88,6 +98,8 @@ extension MapViewController: CLLocationManagerDelegate {
                                               longitude: location.coordinate.longitude,
                                               zoom: zoomLevel)
         
+        placeAutocomplete(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
         if mapView.isHidden {
             mapView.isHidden = false
             mapView.camera = camera
@@ -95,7 +107,7 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.animate(to: camera)
         }
         
-        //This prevents the location to be updated all the time. We just want what we have arround
+        //This prevents the location to be updated all the time. We just want what we have around
         locationManager.stopUpdatingLocation()
         
         updateMarkers()
@@ -126,3 +138,8 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
+extension MapViewController: NetworkManagerClient {
+    func set(networkManager: NetworkManager) {
+        self.networkManager = networkManager
+    }
+}
