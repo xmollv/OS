@@ -37,9 +37,18 @@ class NetworkManager {
         }
     }
     
-    func fetchDataFrom(serverUrl: String, then completionHandler: @escaping CompletionHandlerType) {
+    func fetchDataFrom(serverUrl: String, headers: [String:String]?, then completionHandler: @escaping CompletionHandlerType) {
         if let url = URL(string: serverUrl) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            let request = NSMutableURLRequest(url: url)
+            
+            if let headers = headers {
+                for elem in headers {
+                    request.setValue(elem.value, forHTTPHeaderField: elem.key)
+                }
+            }
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
                 guard error == nil else {
                     if let error = error {
                         completionHandler(Result.failure(error))
@@ -60,7 +69,6 @@ class NetworkManager {
                     completionHandler(Result.failure(XMVError.parsingJson))
                 }
             }
-            
             task.resume()
         } else {
             completionHandler(Result.failure(XMVError.malformedUrl))

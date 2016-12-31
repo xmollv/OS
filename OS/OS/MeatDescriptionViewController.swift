@@ -30,7 +30,7 @@ class MeatDescriptionViewController: UIViewController {
     
     private func downloadDataFromFlickr() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        networkManager.fetchDataFrom(serverUrl: flickrQuery) { [weak weakSelf = self] result in
+        networkManager.fetchDataFrom(serverUrl: flickrQuery, headers: nil) { [weak weakSelf = self] result in
             switch result {
             case .success(let JSON):
                 if let jsonDict = JSON as? [String: Any] {
