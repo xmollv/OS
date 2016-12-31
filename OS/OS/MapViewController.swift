@@ -55,7 +55,7 @@ class MapViewController: UIViewController {
     
     func placeAutocomplete(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let query = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=meat&location=\(latitude),\(longitude)&radius=50000&key=AIzaSyCuxczot7HjTyWbWpym9NRmcAOHxxzpSGg"
-        networkManager.fetchDataFrom(serverUrl: query) { result in
+        networkManager.fetchDataFrom(serverUrl: query, headers: nil) { result in
             switch result {
             case .success(let JSON):
                 if let jsonParsed = JSON as? [String:Any] {
