@@ -69,7 +69,9 @@ extension TweetsViewController: NetworkManagerClient {
 }
 
 extension TweetsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension TweetsViewController: UITableViewDataSource {
