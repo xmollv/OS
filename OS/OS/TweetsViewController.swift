@@ -10,6 +10,7 @@ import UIKit
 
 class TweetsViewController: UIViewController {
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var queryText: UILabel!
     @IBOutlet var tableView: UITableView!
     
@@ -26,6 +27,7 @@ class TweetsViewController: UIViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        titleLabel.text = NSLocalizedString("Tweets.Title", comment: "This title appears above the tweets.")
         queryText.text = textToDisplay
         textToQuery = textToDisplay.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         

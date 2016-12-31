@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  OS
+
+  Created by Xavi Moll on 31/12/2016.
+  Copyright © 2016 Xavi Moll. All rights reserved.
+*/
+
+"Tweets.Title" = "Tweets relacionados con:";
