@@ -10,21 +10,32 @@ import UIKit
 
 class TweetsViewController: UIViewController {
     
+    @IBOutlet var queryText: UILabel!
+    @IBOutlet var tableView: UITableView!
+    
     var networkManager: NetworkManager!
     var tweets = [Tweet]()
+    let textToQuery = "meat"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadRecentTweets()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
         
+        queryText.text = textToQuery
+        
+        downloadRecentTweets()
     }
     
     private func downloadRecentTweets() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         let headers = ["Authorization":"OAuth oauth_consumer_key=\"DC0sePOBbQ8bYdC8r4Smg\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1483204579\",oauth_nonce=\"2180899013\",oauth_version=\"1.0\",oauth_token=\"815244804485283842-EJ7qtrT0EVElmbkIAAksLrI2T4kdDYO\",oauth_signature=\"eSUusclOOHsA2WCElz9i2OIvAvQ%3D\""]
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        networkManager.fetchDataFrom(serverUrl: "https://api.twitter.com/1.1/search/tweets.json?q=meat", headers: headers) { [weak weakSelf = self] result in
+        
+        networkManager.fetchDataFrom(serverUrl: "https://api.twitter.com/1.1/search/tweets.json?q=\(textToQuery)", headers: headers) { [weak weakSelf = self] result in
             switch result {
             case .success(let JSON):
                 if let jsonParsed = JSON as? [String: Any] {
@@ -33,6 +44,9 @@ class TweetsViewController: UIViewController {
                             if let tweetObject = Tweet(dict: tweet) {
                                 weakSelf?.tweets.append(tweetObject)
                             }
+                        }
+                        DispatchQueue.main.async {
+                            weakSelf?.tableView.reloadData()
                         }
                     }
                 }
@@ -49,5 +63,22 @@ class TweetsViewController: UIViewController {
 extension TweetsViewController: NetworkManagerClient {
     func set(networkManager: NetworkManager) {
         self.networkManager = networkManager
+    }
+}
+
+extension TweetsViewController: UITableViewDelegate {
+    
+}
+
+extension TweetsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        let tweet = tweets[indexPath.row]
+        cell.tweetTextLabel.text = tweet.text
+        return cell
     }
 }
