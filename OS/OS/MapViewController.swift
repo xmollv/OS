@@ -99,7 +99,8 @@ extension MapViewController: CLLocationManagerDelegate {
         } else {
             mapView.animate(to: camera)
         }
-
+        
+        locationManager.stopUpdatingLocation()
     }
     
     // Handle authorization for the location manager.
