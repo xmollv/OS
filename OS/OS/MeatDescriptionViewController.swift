@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol NetworkManagerClient {
-    func set(networkManager: NetworkManager)
-}
-
 class MeatDescriptionViewController: UIViewController {
     
     @IBOutlet var firstImage: UIImageView!
@@ -30,6 +26,7 @@ class MeatDescriptionViewController: UIViewController {
     
     private func downloadDataFromFlickr() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        // I'm using weak self to avoid retain cycles
         networkManager.fetchDataFrom(serverUrl: flickrQuery, headers: nil) { [weak weakSelf = self] result in
             switch result {
             case .success(let JSON):
@@ -41,6 +38,7 @@ class MeatDescriptionViewController: UIViewController {
                                     weakSelf?.photos.append(photoModeled)
                                 }
                             }
+                            // Every UI update must be done in the main thread
                             DispatchQueue.main.async {
                                 weakSelf?.populateImages()
                             }
@@ -79,6 +77,8 @@ extension MeatDescriptionViewController: NetworkManagerClient {
 }
 
 extension UIImageView {
+    // Basic setup to display a photo. This should be cached and should display an spinner while
+    // it's downloading the data
     func setImage(photo: Photo) {
         if let url = URL(string: photo.url) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in

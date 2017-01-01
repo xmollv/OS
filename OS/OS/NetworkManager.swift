@@ -8,10 +8,16 @@
 
 import Foundation
 
+protocol NetworkManagerClient {
+    func set(networkManager: NetworkManager)
+}
+
 class NetworkManager {
     
+    // This is just an alias to make it more readable
     typealias CompletionHandlerType = (Result) -> Void
     
+    // If we return an enum, we can switch over it and it's really clear for the reader
     enum Result {
         case success(Any?)
         case failure(Error)
@@ -37,6 +43,8 @@ class NetworkManager {
         }
     }
     
+    // This is a default implementation of a method to fetch data from any given URL. We should improve it to accept different
+    // HTTP methods, change the timeots, allow to send body parameters...
     func fetchDataFrom(serverUrl: String, headers: [String:String]?, then completionHandler: @escaping CompletionHandlerType) {
         if let url = URL(string: serverUrl) {
             
@@ -75,3 +83,5 @@ class NetworkManager {
         }
     }
 }
+
+

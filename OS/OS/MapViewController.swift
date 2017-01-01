@@ -23,7 +23,7 @@ class MapViewController: UIViewController {
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     
-    // A default location to use when location permission is not granted.
+    // A default location to use when location permission is not granted
     let defaultLocation = CLLocation(latitude: 41.38, longitude: 2.16)
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class MapViewController: UIViewController {
         
         placesClient = GMSPlacesClient.shared()
         
-        // Create a map.
+        // Create a map with a default location
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
                                               longitude: defaultLocation.coordinate.longitude,
                                               zoom: zoomLevel)
@@ -50,9 +50,9 @@ class MapViewController: UIViewController {
         
         // Add the map to the view, hide it until we've got a location update.
         mapContainer.addSubview(mapView)
-        mapView.isHidden = true
     }
     
+    // Search for places around based on the 'meat' keyword
     func placeAutocomplete(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let query = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=meat&location=\(latitude),\(longitude)&radius=50000&key=AIzaSyCuxczot7HjTyWbWpym9NRmcAOHxxzpSGg"
         networkManager.fetchDataFrom(serverUrl: query, headers: nil) { result in
@@ -85,21 +85,14 @@ extension MapViewController: CLLocationManagerDelegate {
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-        print("Location: \(location)")
-        
+        // Set the camera to the found location
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               zoom: zoomLevel)
         
         placeAutocomplete(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        if mapView.isHidden {
-            mapView.isHidden = false
-            mapView.camera = camera
-        } else {
-            mapView.animate(to: camera)
-        }
-        
+        mapView.camera = camera
+        mapView.animate(to: camera)
         locationManager.stopUpdatingLocation()
     }
     
@@ -110,8 +103,6 @@ extension MapViewController: CLLocationManagerDelegate {
             print("Location access was restricted.")
         case .denied:
             print("User denied access to location.")
-            // Display the map using the default location.
-            mapView.isHidden = false
         case .notDetermined:
             print("Location status not determined.")
         case .authorizedAlways: fallthrough
