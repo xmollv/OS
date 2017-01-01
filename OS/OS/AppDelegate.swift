@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyAFWIsUPMERnnPOXw2EXDvL4myGxaGeFaM")
+        GMSPlacesClient.provideAPIKey("AIzaSyDh19k2TEccbZiD2CbVpe2FyBldIOg4URA")
+        
+        //Inject the networkManager dependency to every view controller that conforms the NetworkManagerClient protocol
+        let networkManager = NetworkManager()
+        
+        if let tab = window?.rootViewController as? UITabBarController {
+            for child in tab.viewControllers ?? [] {
+                if let top = child as? NetworkManagerClient {
+                    top.set(networkManager: networkManager)
+                }
+            }
+        } else {
+            fatalError("We couldn't find the tab bar controller, we should trap here.")
+        }
+        
         return true
     }
 
