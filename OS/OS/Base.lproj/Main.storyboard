@@ -345,6 +345,7 @@
                     <connections>
                         <outlet property="firstImage" destination="Jtp-bR-EyM" id="tAe-x0-KBv"/>
                         <outlet property="fourthImage" destination="RFg-zV-0XE" id="GlX-2i-rXu"/>
+                        <outlet property="scrollView" destination="Ivz-7j-GH2" id="IMu-ry-I4V"/>
                         <outlet property="secondImage" destination="ZbU-tb-ro4" id="iho-Nl-6uZ"/>
                         <outlet property="thirdImage" destination="OJz-l7-Zqm" id="0yR-4d-4VW"/>
                     </connections>

@@ -10,6 +10,7 @@ import UIKit
 
 class MeatDescriptionViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var firstImage: UIImageView!
     @IBOutlet var secondImage: UIImageView!
     @IBOutlet var thirdImage: UIImageView!
@@ -21,6 +22,7 @@ class MeatDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         downloadDataFromFlickr()
     }
     
@@ -65,14 +67,19 @@ class MeatDescriptionViewController: UIViewController {
         } else {
             print("Not enought photos. Try to download a few more. The query only downloads 4 images.")
         }
-        
     }
-    
 }
 
 extension MeatDescriptionViewController: NetworkManagerClient {
     func set(networkManager: NetworkManager) {
         self.networkManager = networkManager
+    }
+}
+
+// Resign the first responder for the textFields to hide the keyboard
+extension MeatDescriptionViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
     }
 }
 
